@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <script defer src="{% static 'validations.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'index' %}" method="post" id="form">
+        {% csrf_token %}
+        <input type="text" placeholder="Add New Task" name="task" id="task">
+        <button class="btn btn-submit">Add</button>
+        <div id="errors" style="color: red; margin-left: 5px"></div>
+    </form>
+    <div class="tasks">
+        {% for task in tasks %}
+            <p>
+                Task{{ forloop.counter }}: {{ task.task }}
+                <a href="{% url 'update' task.id %}" class="btn-update">Update</a>
+                <a href="{% url 'delete' task.id %}" class="btn-delete">Delete</a>
+            </p>
+        {% endfor %}
+    </div>
+{% endblock %}
