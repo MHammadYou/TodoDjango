@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'pvo4cdb5jp-$mw4xkh/g$e3n7r]hmt!u=b3-+bl{fe+9$ox]sw0lwg7&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -66,8 +66,12 @@ WSGI_APPLICATION = 'TodoDjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd11f1bn6457gt',
+        'USER': 'zchihebreyqeng',
+        'PASSWORD': '2c9a7695a190c571556d3a3a9a7c21d7faebb6fdbfa49aa98fc74444f658dfda',
+        'HOST': 'ec2-34-237-247-76.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
